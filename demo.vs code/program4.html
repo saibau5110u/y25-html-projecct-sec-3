@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduERP Advanced level Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --primary: #395886;
+            --secondary: #0758f9;
+            --accent: #a200ff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--secondary);
+        }
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 16px 0;
+            text-align: center;
+            font-size: 2em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #00ff15a9;
+        }
+        nav button {
+            margin: 8px 12px;
+            padding: 10px 35px;
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            border-radius: 7px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        nav button.active,
+        nav button:hover {
+            background: var(--accent);
+        }
+        .dashboard {
+            max-width: 900px;
+            margin: 34px auto;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(57,88,134,0.07);
+            border-radius: 12px;
+            padding: 40px 40px 30px 40px;
+        }
+        h2 { color: var(--primary); }
+        form label { 
+            display: block;
+            margin: 14px 0 4px 0;
+            font-weight: 500;
+        }
+        input, select, textarea {
+            padding: 7px 12px;
+            margin-bottom: 16px;
+            width: 95%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .form-section { margin-bottom: 25px; }
+        .success { color: var(--accent); }
+        .error { color: #f20800; }
+        .section { margin-bottom: 24px; }
+        @media (max-width: 600px) {
+            .dashboard { padding: 12px; }
+            header { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        EduERP Advanced Management System
+    </header>
+    <nav>
+        <button onclick="showPanel('admin')" class="active">Admin</button>
+        <button onclick="showPanel('teacher')">Teacher</button>
+        <button onclick="showPanel('student')">Student</button>
+        <button onclick="showPanel('administrator')">Administrator</button>
+    </nav>
+
+    <div class="dashboard" id="admin-panel">
+        <h>Admin Dashboard</h>
+        <form id="adminForm">
+            <div class="form-section">
+                <label>New Role Name</label>
+                <input type="text" name="role" required>
+            </div>
+            <div class="form-section">
+                <label>Assign Role To User (User Email)</label>
+                <input type="email" name="email" required>
+            </div>
+            <button type="submit">Add/Assign Role</button>
+            <div class="success" id="adminSuccess"></div>
+        </form>
+    </div>
+
+    <div class="dashboard" id="teacher-panel" style="display:none">
+        <h2>Teacher Dashboard</h2>
+        <form id="teacherForm">
+            <div class="form-section">
+                <label>Student Name</label>
+                <input type="text" name="studentName" required>
+            </div>
+            <div class="form-section">
+                <label>Attendance</label>
+                <select name="attendance" required>
+                    <option value="">Select</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <label>Grade (0-100)</label>
+                <input type="number" name="grade" min="0" max="100" required>
+            </div>
+            <div class="form-section">
+                <label>Assignment Comments</label>
+                <textarea name="comments"></textarea>
+            </div>
+            <button type="submit">Submit Record</button>
+            <div class="success" id="teacherSuccess"></div>
+        </form>
+    </div>
+
+    <div class="dashboard" id="student-panel" style="display:none">
+        <h2>Student Dashboard</h2>
+        <form id="studentForm">
+            <div class="form-section">
+                <label>Student ID</label>
+                <input type="text" name="studentId" required>
+            </div>
+            <div class="form-section">
+                <label>Request Type</label>
+                <select name="requestType" required>
+                    <option value="">Select</option>
+                    <option value="Transcript">Transcript</option>
+                    <option value="Attendance Report">Attendance Report</option>
+                    <option value="Contact Teacher">Contact Teacher</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <label>Message</label>
+                <textarea name="message"></textarea>
+            </div>
+            <button type="submit">Send Request</button>
+            <div class="success" id="studentSuccess"></div>
+        </form>
+    </div>
+
+    <div class="dashboard" id="administrator-panel" style="display:none">
+        <h2>Administrator Dashboard</h2>
+        <form id="administratorForm">
+            <div class="form-section">
+                <label>Resource Name</label>
+                <input type="text" name="resourceName" required>
+            </div>
+            <div class="form-section">
+                <label>Report Type</label>
+                <select name="reportType" required>
+                    <option value="">Select</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Attendance">Attendance</option>
+                    <option value="Financial">Financial</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <label>Description</label>
+                <textarea name="description"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+            <div class="success" id="administratorSuccess"></div>
+        </form>
+    </div>
+
+    <script>
+        function showPanel(panel) {
+            const panels = ['admin', 'teacher', 'student', 'administrator'];
+            panels.forEach(p => {
+                document.getElementById(p+'-panel').style.display = 'none';
+                document.querySelector(`nav button[onclick*="${p}"]`).classList.remove('active');
+            });
+            document.getElementById(panel+'-panel').style.display = 'block';
+            document.querySelector(`nav button[onclick*="${panel}"]`).classList.add('active');
+        }
+
+       
+        
+
+        document.getElementById('teacherForm').onsubmit = function(e){
+            e.preventDefault();
+            document.getElementById('teacherSuccess').textContent = 'Student record submitted!';
+        };
+
+        document.getElementById('studentForm').onsubmit = function(e){
+            e.preventDefault();
+            document.getElementById('studentSuccess').textContent = 'Request sent!';
+        };
+
+        document.getElementById('administratorForm').onsubmit = function(e){
+            e.preventDefault();
+            document.getElementById('administratorSuccess').textContent = 'Report submitted!';
+        };
+    </script>
+</body>
+</html>

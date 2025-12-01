@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE 2</title>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        var password = params.get('password');
+        
+        window.onload = function(){
+            if(password){
+                document.getElementById("rd").innerHTML = "Password: " + password;
+            }
+        }
+    </script>
+</head>
+<body>
+    This is Page 2
+    <div id="rd">
+        There are no reterieved data
+    </div>
+</body>
+</html> 
