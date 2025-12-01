@@ -1,0 +1,314 @@
+/* Base Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212; /* Dark neutral background */
+  color: #cfd8dc; /* Light grayish text */
+  overflow-x: hidden;
+
+ 
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 0.9);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #263238;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  color: #80deea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;/* Slightly larger font size */
+  padding-bottom: 0.2rem;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  color: #66e4f5;
+  border-bottom-color: #4dd0e1;
+}
+
+/* Video background container */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Overlay to darken video */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 18, 18, 0.6);
+  z-index: 2;
+}
+
+/* Content box for ocean clean info */
+.ocean-info-box {
+  position: relative;
+  z-index: 20;
+  max-width: 700px;
+  margin: 120px auto 60px auto;
+  background-color: #263238; /* Dark neutral tone */
+  color: #cfd8dc;
+  padding: 9vh 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00838f;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif "/";
+}
+
+.ocean-info-box h3 {
+  color: #4dd0e1;
+  margin-bottom: 1rem;
+}
+
+.ocean-info-box .img-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.ocean-info-box .img-row img {
+  width: 48%; /* Two images per row */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #37474f; /* Placeholder bg */
+  border: 1px solid #455a64;
+  margin-bottom: 1rem;
+}
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #48b9e6;
+  border-radius: 50%;
+  color: #48b9e6;
+  font-size: 2rem;
+  transition: 0.2s all;
+  background: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.social-icon:hover {
+  background: #133e4e;
+  color: #fff;
+  border-color: #51c4e7;
+}
+.report-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.report-form textarea {
+  width: 90%;
+  min-height: 80px;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 2px solid #4dd0e1;
+  background: #1a2226;
+  color: #cfd8dc;
+  resize: vertical;
+  margin-bottom: 0.7rem;
+}
+
+.report-form button {
+  background: #4dd0e1;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.report-form button:hover {
+  background: #00838f;
+  color: #fff;
+}
+.help-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.help-form textarea {
+  width: 90%;
+  min-height: 80px;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 2px solid #4dd0e1;
+  background: #1a2226;
+  color: #cfd8dc;
+  resize: vertical;
+  margin-bottom: 0.7rem;
+}
+.help-form button {
+  background: #4dd0e1;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.help-form button:hover {
+  background: #00838f;
+  color: #fff;
+}
+.project-list {
+  text-align: left;
+  margin: 1.5rem auto 0 auto;
+  padding-left: 1.2rem;
+  max-width: 90%;
+  color: #80deea;
+  font-size: 1rem;
+}
+.project-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.35;
+  list-style-type: disc;
+}
+.suggest-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.suggest-form textarea {
+  width: 90%;
+  min-height: 80px;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 2px solid #4dd0e1;
+  background: #1a2226;
+  color: #cfd8dc;
+  resize: vertical;
+  margin-bottom: 0.7rem;
+}
+
+.suggest-form button {
+  background: #4dd0e1;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 2s;
+ 
+  animation: popUp 0.6s ease-out;
+
+}
+
+.suggest-form button:hover {
+  background: #000000;
+  color: #117400;
+}
+@keyframes popUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+
+
+
+
+
+
+
+@keyframes colorShift {
+  0% {
+    background-color: #5a0707;
+    color: #80deea;
+  }
+  25% {
+    background-color: #154589;
+    color: #4dd0e1;
+  }
+  50% {
+    background-color: #696e00;
+    color: #00acc1;
+  }
+  75% {
+    background-color: #340055bc;
+    color: #cfd8dc;
+  }
+  100% {
+    background-color: #610131;
+    color: #80deea;
+  }
+}
+.ocean-info-box {
+  animation: colorShift 8s infinite ease-in-out;
+}

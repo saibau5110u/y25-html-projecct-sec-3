@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project - Ocean Cleanup Inspired</title>
+  <link rel="stylesheet" href="style_project.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="Home_project.html">Home</a></li>
+      <li><a href="project_project.html" class="active">Project</a></li>
+      <li><a href="contact_project.html">Contact</a></li>
+      <li><a href="Report_project.html">Report</a></li>
+      <li><a href="Help_Project.html">Help</a></li>
+    </ul>
+  </nav>
+
+  <div class="video-background">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="https://cdn.pixabay.com/video/2023/09/24/182082-867762198_tiny.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="video-overlay"></div>
+
+  <div class="ocean-info-box">
+    <h3>Our Projects</h3>
+    <p>Information about our ocean cleanup projects and initiatives aimed at reducing marine pollution and preserving aquatic ecosystems.</p>
+    <div class="img-row">
+      <img src="https://media.istockphoto.com/id/1023578222/photo/activists-working-together-making-a-difference.jpg?s=612x612&w=0&k=20&c=wPrD2C01Zl6dp5z57gkkZSDTbWciQCfXaeSXnRvv0mQ=" alt="project_cleanup_team" />
+      <img src="https://i.guim.co.uk/img/media/3b636cdf1d2fc5cc7f5b2587e93370d9f4f74ab0/0_343_4000_2400/master/4000.jpg?width=700&quality=85&auto=format&fit=max&s=c1531f809378e96d85c978299e423a48" alt="project_in_action" />
+      <img src="https://www.scubadiving.com/sites/default/files/styles/655_1x_/public/scuba/images/2018/03/diver-trash-1.jpg?itok=3SjWcQpV" alt="marine_debris_removal" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDarPZb3FT2JFwezURgHM1FNFmPxhfHlmMgw&s" alt="project_success_story" />
+    </div>
+    <ul class="project-list">
+  <li>Great Pacific Garbage Patch Cleanup (Systems 001/002/003)</li>
+  <li>River Interceptor Deployments (removing plastic before it reaches the ocean)</li>
+  <li>30 Cities Program (scaling Interceptor technology in major cities worldwide)</li>
+  <li>Mega Expedition (2015 surface and aerial sampling missions)</li>
+  <li>Aerial Expedition (large debris mapping in the Pacific)</li>
+  <li>Trashfence trials and Interceptor upgrades in Guatemala and global rivers</li>
+  <li>Plastic repurposing partnerships</li>
+</ul>
+<form class="suggest-form">
+  <textarea placeholder="Describe your project suggestion..." required></textarea>
+  <br>
+  <button type="submit">Suggest Project</button>
+</form>
+<script>
+  document.querySelector('.suggest-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert("Message submitted!");
+    this.reset();
+  });
+</script>
+
+  </div>
+</body>
+</html>

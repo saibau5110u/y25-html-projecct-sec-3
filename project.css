@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes backgroundColorChange {
+  0%   { background-color: #2b2700; }
+  25%  { background-color: #00290e; }
+  50%  { background-color: #210010; }
+  75%  { background-color: #00012e; }
+  100% { background-color: #2f0000; }
+}
+
+body {
+  animation: backgroundColorChange 20s ease-in-out infinite;
+}
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #170000; /* Neutral light grey */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+  background-color: #4B5563; /* Neutral dark grey */
+  color: #F9FAFB; /* Very light text */
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Navigation Styling */
+nav {
+  background-color: #6B7280; /* Medium grey */
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #F9FAFB;
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #374151; /* Darker grey */
+  color: #D1D5DB; /* Light grey */
+}
+
+/* Main Content Styling */
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  background-color: #FFFFFF; /* White background for sections */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+  margin-bottom: 1.5rem;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.section h2 {
+  color: #374151; /* Dark slate grey */
+  margin-bottom: 0.8rem;
+}
+
+.section p {
+  color: #4B5563; /* Slate grey */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Image styling for section images */
+.section-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(55, 65, 81, 0.2);
+  background-color: #E5E7EB; /* placeholder background */
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+
+  .section-image {
+    max-width: 100%;
+  }
+}
